@@ -1,0 +1,104 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+
+<div class="container">
+  <div>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://i.pinimg.com/originals/be/bd/ff/bebdffa81546d2aaf1a80c234d9043aa.png" alt="" width="72" height="72">
+      <h2>Checkout form</h2>
+      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+  </div>
+
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <div class="host">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Second Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Telephone No</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Birthday</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>NIC</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <form [formGroup]="secondFormGroup">
+      <div class="host">
+        <mat-form-field appearance="fill">
+          <mat-label>Sex</mat-label>
+          <mat-select>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Smoke</mat-label>
+          <mat-select>
+            <mat-option value="yes">Yes</mat-option>
+            <mat-option value="no">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Location</mat-label>
+          <mat-select>
+            <mat-option value="southwest">South West</mat-option>
+            <mat-option value="southeast">South East</mat-option>
+            <mat-option value="northwest">North West</mat-option>
+            <mat-option value="northeast">North East</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>BMI</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Children</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="secondCtrl" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+</div>
