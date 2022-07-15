@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
     secondCtrl: ['', Validators.required],
   });
   isLinear = false;
+  prediction:any;
 
   constructor(private _formBuilder: FormBuilder,private formservice:FormService) { }
 
@@ -30,6 +31,7 @@ export class FormComponent implements OnInit {
       (response: Form) => {
         console.log(response);
         addForm.reset();
+        this.prediction=response
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

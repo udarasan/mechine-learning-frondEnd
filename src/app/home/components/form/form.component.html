@@ -8,7 +8,7 @@
   <div>
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="https://i.pinimg.com/originals/be/bd/ff/bebdffa81546d2aaf1a80c234d9043aa.png" alt="" width="72" height="72">
-      <h2>Checkout form</h2>
+      <h2>Insurance Premium Prediction Form</h2>
       <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
     </div>
   </div>
@@ -103,7 +103,19 @@
     </div>
   </mat-step>
 </mat-stepper>-->
+
+</div>
+<div class="row">
+<div class="col-4">
+
+</div>
+<div class="col-4">
   <form #addForm="ngForm" (ngSubmit)="sendData(addForm) ">
+    <div>
+      <h2> Your Insurance Prediction ::
+        {{prediction}} USD
+      </h2>
+    </div>
     <div class="form-group">
       <label for="age">Age</label>
       <input type="number" ngModel name="age" class="form-control" id="age" placeholder="age" required>
@@ -122,7 +134,7 @@
     </div>
     <div class="form-group">
       <label for="smoker_yes">smoker_yes</label>
-      <input type="number" ngModel name="smoker_yes" class="form-control" id="smoker_yes" placeholder="Image URL" required>
+      <input type="number" ngModel name="smoker_yes" class="form-control" id="smoker_yes" placeholder="smoker_yes" required>
     </div>
     <div class="form-group">
       <label for="region_northwest">region_northwest</label>
@@ -136,9 +148,15 @@
       <label for="region_southwest">region_southwest</label>
       <input type="number" ngModel name="region_southwest" class="form-control" id="region_southwest" placeholder="region_southwest" required>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer mt-3" >
       <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
     </div>
   </form>
+
+
+</div>
+<div class="col-4">
+
+</div>
 </div>
