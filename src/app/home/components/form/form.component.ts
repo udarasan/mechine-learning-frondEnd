@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-
+import {FormBuilder, NgForm, Validators} from "@angular/forms";
+import {HttpErrorResponse} from "@angular/common/http";
+import {FormService} from "./form.service";
+import {Form} from "./form"
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
+  public form: Form[] | undefined;
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -15,9 +19,21 @@ export class FormComponent implements OnInit {
   });
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,private formservice:FormService) { }
 
   ngOnInit(): void {
   }
 
+  sendData(addForm: NgForm) :void{
+    console.log(addForm.value)
+    this.formservice.addEmployee(addForm.value).subscribe(
+      (response: Form) => {
+        console.log(response);
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 }

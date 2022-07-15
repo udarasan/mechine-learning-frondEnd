@@ -1,6 +1,8 @@
+<!--
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
+-->
 
 <div class="container">
   <div>
@@ -11,7 +13,7 @@
     </div>
   </div>
 
-<mat-stepper [linear]="isLinear" #stepper>
+<!--<mat-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>
@@ -46,15 +48,15 @@
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-    <form [formGroup]="secondFormGroup">
+  </mat-step>-->
+
+   <!-- <form #addForm="ngForm" (ngSubmit)="sendData(addForm) ">
       <div class="host">
         <mat-form-field appearance="fill">
           <mat-label>Sex</mat-label>
           <mat-select>
-            <mat-option value="male">Male</mat-option>
-            <mat-option value="female">Female</mat-option>
+            <mat-option value="1">Male</mat-option>
+            <mat-option value="0">Female</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
@@ -64,8 +66,8 @@
         <mat-form-field appearance="fill">
           <mat-label>Smoke</mat-label>
           <mat-select>
-            <mat-option value="yes">Yes</mat-option>
-            <mat-option value="no">No</mat-option>
+            <mat-option value="1">Yes</mat-option>
+            <mat-option value="0">No</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
@@ -87,11 +89,11 @@
         </mat-form-field>
       </div>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button >Back</button>
+        <button mat-button  type="submit" >Next</button>
       </div>
-    </form>
-  </mat-step>
+    </form>-->
+<!--  </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
@@ -100,5 +102,43 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
-</mat-stepper>
+</mat-stepper>-->
+  <form #addForm="ngForm" (ngSubmit)="sendData(addForm) ">
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="text" ngModel name="age" class="form-control" id="age" placeholder="age" required>
+    </div>
+    <div class="form-group">
+      <label for="bmi">bmi</label>
+      <input type="text" ngModel name="bmi" class="form-control" id="bmi" placeholder="bmi" required>
+    </div>
+    <div class="form-group">
+      <label for="children">children</label>
+      <input type="text" ngModel name="children" class="form-control" id="children" placeholder="children" required>
+    </div>
+    <div class="form-group">
+      <label for="sex_male">sex_male</label>
+      <input type="text" ngModel name="sex_male" class="form-control" id="sex_male" placeholder="sex_male" required>
+    </div>
+    <div class="form-group">
+      <label for="smoker_yes">smoker_yes</label>
+      <input type="text" ngModel name="smoker_yes" class="form-control" id="smoker_yes" placeholder="Image URL" required>
+    </div>
+    <div class="form-group">
+      <label for="region_northwest">region_northwest</label>
+      <input type="text" ngModel name="region_northwest" class="form-control" id="region_northwest" placeholder="region_northwest" required>
+    </div>
+    <div class="form-group">
+      <label for="region_southeast">region_southeast</label>
+      <input type="text" ngModel name="region_southeast" class="form-control" id="region_southeast" placeholder="region_southeast" required>
+    </div>
+    <div class="form-group">
+      <label for="region_southwest">region_southwest</label>
+      <input type="text" ngModel name="region_southwest" class="form-control" id="region_southwest" placeholder="region_southwest" required>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+    </div>
+  </form>
 </div>
